@@ -1,6 +1,6 @@
 #include <stdio.h> 
 extern unsigned char ram[]; // RAM delcared in 
-assembly 
+assembly; 
 extern void fill_ram(void); // Assembly function 
 int main()
 {fill_ram(); // Run assembly vode 
