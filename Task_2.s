@@ -5,7 +5,7 @@
 .section .text 
 .global fill_ram  # Make function visible to C program 
 fill_ram: 
-  # Store FFh into RAM locations 50H - 58H using direct addressing
+  # Store FFh into RAM locations 50H - 58H using indirect ddressing
 
   movb $0xFF, (%rbx) // This helps with indirect addressing 
   movb $0xFF, ram+0x51 
