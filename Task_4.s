@@ -13,7 +13,7 @@ fill_ram:
   cmp $11, % bl  # looking at whether or not you have passed 10 
   jne sum_loop 
 
-
+  moveb %bl, ram+0x50
 
 ret         # Return control back to C program 
 .section .note.GNU-stack,"",@progbits
