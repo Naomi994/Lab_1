@@ -4,18 +4,16 @@
 
 .section .text 
 .global fill_ram  # Make function visible to C program 
+
 fill_ram: 
   # Store FFh into RAM locations 50H - 58H using direct addressing
+  xorb %al, % al # clear al to 0 
+  move $1, % bl  # move 1 into bl 
 
-  movb $0xFF, ram+0x50
-  movb $0xFF, ram+0x51 
-  movb $0xFF, ram+0x52
-  movb $0xFF, ram+0x53
-  movb $0xFF, ram+0x54
-  movb $0xFF, ram+0x55
-  movb $0xFF, ram+0x56
-  movb $0xFF, ram+0x57
-  movb $0xFF, ram+0x58
+  cmp $11, % bl  # looking at whether or not you have passed 10 
+  jne sum_loop 
+
+
 
 ret         # Return control back to C program 
 .section .note.GNU-stack,"",@progbits
