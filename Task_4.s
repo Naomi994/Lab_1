@@ -6,13 +6,13 @@
 .global fill_ram  # Make function visible to C program 
 
 fill_ram: 
-  # Store FFh into RAM locations 50H - 58H using direct addressing
-  xorb %al, %al # clear al to 0 
-  move $1, %bl  # move 1 into bl 
-
-  cmp $11, %bl  # looking at whether or not you have passed 10 
-  jne sum_loop 
-
+  movb $1, %eax
+  movb $0, %ebx 
+loop_label:
+  cmpb $11, %ebx
+  incb %ebx 
+  jnpe loop_label 
+  
   moveb %bl, ram+0x50
 
 ret         # Return control back to C program 
