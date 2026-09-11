@@ -7,10 +7,10 @@
 
 fill_ram: 
   # Store FFh into RAM locations 50H - 58H using direct addressing
-  xorb %al, % al # clear al to 0 
-  move $1, % bl  # move 1 into bl 
+  xorb %al, %al # clear al to 0 
+  move $1, %bl  # move 1 into bl 
 
-  cmp $11, % bl  # looking at whether or not you have passed 10 
+  cmp $11, %bl  # looking at whether or not you have passed 10 
   jne sum_loop 
 
   moveb %bl, ram+0x50
