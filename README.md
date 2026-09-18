@@ -23,5 +23,5 @@ gcc -no-pie Task_3.s print_ram.c -o task3
 # Task 4 
 ## Compile 
 
-gcc -no-pie Task4.s print_ram.c -o task4 
+gcc -no-pie Task_4.s print_ram.c -o task4
 ./task4
