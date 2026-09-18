@@ -6,18 +6,26 @@
 .global fill_ram  # Make function visible to C program 
 fill_ram: 
   # Store FFh into RAM locations 50H - 58H using indirect ddressing
+  movq $ram+0x50, %rax  # move the pointer to the ram+0x50
 
-  # This helps with indirect addressing
-  #  
-  movb $0xFF, (%eax) 
-  movb $0xFF, (%eax)
-  movb $0xFF, (%eax)
-  movb $0xFF, (%eax)
-  movb $0xFF, (%eax)
-  movb $0xFF, (%eax)
-  movb $0xFF, (%eax)
-  movb $0xFF, (%eax)
-  movb $0xFF, (%eax) 
-
-ret         # Return control back to C program 
+  movb $0xFF, (%rax) 
+  incq %rax
+  movb $0xFF, (%rax) 
+  incq %rax
+  movb $0xFF, (%rax) 
+  incq %rax
+  movb $0xFF, (%rax) 
+  incq %rax
+  movb $0xFF, (%rax) 
+  incq %rax
+  movb $0xFF, (%rax) 
+  incq %rax
+  movb $0xFF, (%rax) 
+  incq %rax
+  movb $0xFF, (%rax) 
+  incq %rax
+  movb $0xFF, (%rax) 
+  
+  
+  ret         # Return control back to C program 
 .section .note.GNU-stack,"",@progbits
